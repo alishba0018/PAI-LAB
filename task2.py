@@ -1,36 +1,26 @@
-def matrix_addition(A, B):
-    rows = len(A)
-    cols = len(A[0])
-    result = [[0 for _ in range(cols)] for _ in range(rows)]
-    for i in range(rows):
-        for j in range(cols):
-            result[i][j] = A[i][j] + B[i][j]
-    return result
-def matrix_multiplication(A, B):
-    rows_A = len(A)
-    cols_A = len(A[0])
-    rows_B = len(B)
-    cols_B = len(B[0])
-    if cols_A != rows_B:
-        raise ValueError("Number of columns in A must equal number of rows in B")
-    result = [[0 for _ in range(cols_B)] for _ in range(rows_A)]
-    for i in range(rows_A):
-        for j in range(cols_B):
-            for k in range(cols_A):
-                result[i][j] += A[i][k] * B[k][j]
-    return result
-A = [[1, 2, 3],
-     [4, 5, 6]]
-B = [[7, 8, 9],
-     [10, 11, 12]]
-C = [[1, 2],
-     [3, 4],
-     [5, 6]]
-print("Matrix A:")
-print(A)
-print("Matrix B:")
-print(B)
-print("\nAddition of A and B:")
-print(matrix_addition(A, B))
-print("\nMultiplication of A and C:")
-print(matrix_multiplication(A, C))
+x=[[1,2,3],[4,5,6],[7,8,9]]
+y=[[1,2,3],[4,5,6],[7,8,9]]
+z=[[1,2],[3,4],[5,6]]
+result1=[[0,0,0],[0,0,0],[0,0,0]]
+result2=[[0,0],[0,0],[0,0]]
+
+for i in range(len(x)):
+    for j in range(len(x[0])):
+        result1[i][j]=x[i][j]+y[i][j]
+    
+for i in range(len(x)):
+    for j in range(len(z[0])):
+        for k in range(len(z)):
+            result2[i][j]+=x[i][k]*z[k][j]
+
+    
+print("Matrix X:")
+print(x)
+print("Matrix Y:")
+print(y)
+print("\nAddition of X and Y:")
+for r in result1:
+    print(r)
+print("\nMultiplication of X and Z:")
+for r in result2:
+    print(r)   
